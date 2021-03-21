@@ -1,0 +1,36 @@
+/*
+ * Copyright (c) Kuba Szczodrzyński 2020-3-28.
+ */
+
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'kotlin'
+    id 'kotlin-kapt'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir "${buildDir.absolutePath}/tmp/kapt/main/kotlinGenerated/"
+        }
+    }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'com.google.auto.service:auto-service:1.0-rc7'
+    implementation 'com.squareup:kotlinpoet:1.7.2'
+    implementation "androidx.room:room-runtime:2.2.6"
+
+    kapt "com.google.auto.service:auto-service:1.0-rc7"
+    kapt "androidx.room:room-compiler:2.2.6"
+
+    kapt project(":annotation")
+    compileOnly project(":annotation")
+}

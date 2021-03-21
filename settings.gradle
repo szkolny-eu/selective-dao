@@ -1,3 +1,4 @@
 rootProject.name = "SelectiveDao"
 include ':app'
 include ':annotation'
+include ':codegen'
