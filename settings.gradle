@@ -1,0 +1,2 @@
+rootProject.name = "SelectiveDao"
+include ':app'
