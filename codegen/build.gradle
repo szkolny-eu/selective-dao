@@ -6,7 +6,6 @@ plugins {
     id 'java-library'
     id 'kotlin'
     id 'kotlin-kapt'
-    id 'maven-publish'
 }
 
 sourceSets {
@@ -20,21 +19,6 @@ sourceSets {
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
-}
-
-task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
 }
 
 dependencies {
