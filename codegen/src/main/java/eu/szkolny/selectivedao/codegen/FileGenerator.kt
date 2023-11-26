@@ -279,7 +279,7 @@ class FileGenerator : AbstractProcessor() {
                     .endControlFlow()
             }
             else {
-                bind.addStatement("stmt.$bindMethod($index, $param)")
+                bind.addStatement("stmt.$bindMethod($index, $param)!!")
             }
         }
 
