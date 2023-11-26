@@ -98,7 +98,7 @@ class FileGenerator : AbstractProcessor() {
         val selective = TypeSpec.classBuilder("${daoName}Selective")
             .primaryConstructor(
                 FunSpec.constructorBuilder()
-                .addParameter("__db", roomDatabase, KModifier.NOINLINE)
+                .addParameter("__db", roomDatabase)
                 .build())
             .addProperty(
                 PropertySpec.builder("__db", roomDatabase)
