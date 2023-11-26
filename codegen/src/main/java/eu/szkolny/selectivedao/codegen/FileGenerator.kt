@@ -98,7 +98,7 @@ class FileGenerator : AbstractProcessor() {
         val selective = TypeSpec.classBuilder("${daoName}Selective")
             .primaryConstructor(
                 FunSpec.constructorBuilder()
-                .addParameter("__db", roomDatabase, KModifier.PRIVATE)
+                .addParameter("__db", roomDatabase)
                 .build())
             .addProperty(
                 PropertySpec.builder("__db", roomDatabase)
@@ -279,7 +279,7 @@ class FileGenerator : AbstractProcessor() {
                     .endControlFlow()
             }
             else {
-                bind.addStatement("stmt.$bindMethod($index, $param)")
+                bind.addStatement("stmt.$bindMethod($index, $param!!)")
             }
         }
 
